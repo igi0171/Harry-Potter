@@ -10,7 +10,7 @@ import House from "./components/House";
 
 function App() {
   return (
-    <div>
+    <>
       <h1>Harry Potter</h1>
       <NavBar />
       <main>
@@ -26,7 +26,7 @@ function App() {
           <Route path="/house/:house" element={<House />}></Route>
         </Routes>
       </main>
-    </div>
+    </>
   );
 }
 

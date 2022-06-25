@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
+import Character from "./Character";
 
 const Characters = () => {
   const [findCharacter, setFindCharacter] = useState("");
-  const [characterNames, setCharacterNames] = useState([]);
+  const [charactersAlphabetical, setCharactersAlphabetical] = useState([]);
   const [characters, setCharacters] = useState([]);
 
   const [isLoading, setIsLoading] = useState(false);
@@ -20,9 +21,9 @@ const Characters = () => {
       }
 
       const data = await res.json();
-      const alphabeticalData = JSON.parse(JSON.stringify(data));
-      console.log(data, alphabeticalData);
-      alphabeticalData.sort(function (a, b) {
+      const dataAlphabetical = JSON.parse(JSON.stringify(data));
+      // console.log(data, dataAlphabetical);
+      dataAlphabetical.sort(function (a, b) {
         const nameA = a.name.toUpperCase(); // ignore upper and lowercase
         const nameB = b.name.toUpperCase(); // ignore upper and lowercase
         if (nameA < nameB) {
@@ -35,7 +36,8 @@ const Characters = () => {
         // names must be equal
         return 0;
       });
-      setCharacterNames(alphabeticalData);
+      setCharactersAlphabetical(dataAlphabetical);
+      setCharacters(data);
     } catch (err) {
       setError(err.message);
     }
@@ -71,15 +73,19 @@ const Characters = () => {
             type="text"
             onChange={handleCharacterChange}
             list="characters"
+            placeholder="Select a character"
           ></input>
           <datalist id="characters">
-            <option value="" />
-            {characterNames.map((d, i) => {
-              return <option value={d.name} key={i} />;
+            {charactersAlphabetical.map((character, index) => {
+              return <option value={character.name} key={index} />;
             })}
           </datalist>
         </div>
       </form>
+      <Character
+        characters={characters}
+        findCharacter={findCharacter}
+      ></Character>
     </>
   );
 };
