@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Character from "./Character";
 
-const Characters = () => {
+const Characters = (props) => {
   const [findCharacter, setFindCharacter] = useState("");
   const [charactersAlphabetical, setCharactersAlphabetical] = useState([]);
   const [characters, setCharacters] = useState([]);
@@ -22,7 +22,7 @@ const Characters = () => {
 
       const data = await res.json();
       const dataAlphabetical = JSON.parse(JSON.stringify(data));
-      // console.log(data, dataAlphabetical);
+
       dataAlphabetical.sort(function (a, b) {
         const nameA = a.name.toUpperCase(); // ignore upper and lowercase
         const nameB = b.name.toUpperCase(); // ignore upper and lowercase
@@ -60,6 +60,15 @@ const Characters = () => {
     setFindCharacter(event.target.value);
   };
 
+  const handleCharacterChangeRandom = (event) => {
+    event.preventDefault();
+    setFindCharacter(
+      charactersAlphabetical[
+        Math.floor(Math.random() * charactersAlphabetical.length)
+      ].name
+    );
+  };
+
   return (
     <>
       <h1>Harry Potter Characters</h1>
@@ -74,6 +83,7 @@ const Characters = () => {
             onChange={handleCharacterChange}
             list="characters"
             placeholder="Select a character"
+            value={findCharacter}
           ></input>
           <datalist id="characters">
             {charactersAlphabetical.map((character, index) => {
@@ -82,10 +92,15 @@ const Characters = () => {
           </datalist>
         </div>
       </form>
-      <Character
-        characters={characters}
-        findCharacter={findCharacter}
-      ></Character>
+      <button onClick={handleCharacterChangeRandom}>Random Character</button>
+      {!isLoading && (
+        <Character
+          characters={characters}
+          findCharacter={findCharacter}
+        ></Character>
+      )}
+      {isLoading && <p>Loading... please wait</p>}
+      {!isLoading && error && <p>{error}</p>}
     </>
   );
 };
