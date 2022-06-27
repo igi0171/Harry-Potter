@@ -1,6 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+
 .navbar {
   height: 5rem;
-  background-color: red;
+  background: url(https://i.imgur.com/9J7vAMl.png);
+}
+
+.navbar:hover {
+  background: url(https://i.imgur.com/4Rp3dvn.png);
 }
 
 .navbar nav {
@@ -20,6 +26,8 @@
 .navbar li {
   margin: 0 1rem;
   width: 10rem;
+  font-family: "Dancing Script", cursive;
+  font-size: 2rem;
 }
 
 .navbar a {
@@ -32,5 +40,5 @@
 .navbar a.active {
   color: whitesmoke;
   padding-bottom: 0.25rem;
-  border-bottom: 4px solid whitesmoke;
+  border-bottom: 4px solid #6b63b5;
 }

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Character from "./Character";
 
+import styles from "./Characters.module.css";
+
 const Characters = (props) => {
   const [findCharacter, setFindCharacter] = useState("");
   const [charactersAlphabetical, setCharactersAlphabetical] = useState([]);
@@ -71,28 +73,29 @@ const Characters = (props) => {
 
   return (
     <>
-      <h1>Harry Potter Characters</h1>
-      <form>
-        <div>
-          <label htmlFor="character">Find Character</label>
-        </div>
-        <div>
-          <input
-            id="character"
-            type="text"
-            onChange={handleCharacterChange}
-            list="characters"
-            placeholder="Select a character"
-            value={findCharacter}
-          ></input>
-          <datalist id="characters">
-            {charactersAlphabetical.map((character, index) => {
-              return <option value={character.name} key={index} />;
-            })}
-          </datalist>
-        </div>
-      </form>
-      <button onClick={handleCharacterChangeRandom}>Random Character</button>
+      <div className={styles.top_bar}>
+        <form>
+          <div className={styles.find_character}>
+            <label htmlFor="character">Find Character:</label>
+          </div>
+          <div className={styles.select_character}>
+            <input
+              id="character"
+              type="text"
+              onChange={handleCharacterChange}
+              list="characters"
+              placeholder="Select a character"
+              value={findCharacter}
+            ></input>
+            <datalist id="characters">
+              {charactersAlphabetical.map((character, index) => {
+                return <option value={character.name} key={index} />;
+              })}
+            </datalist>
+          </div>
+        </form>
+        <button onClick={handleCharacterChangeRandom}>Random Character</button>
+      </div>
       {!isLoading && (
         <Character
           characters={characters}

@@ -11,7 +11,7 @@ import House from "./components/House";
 function App() {
   return (
     <>
-      <h1>Harry Potter</h1>
+      <h1 className="harry-potter">Harry Potter</h1>
       <NavBar />
       <main>
         <Routes>

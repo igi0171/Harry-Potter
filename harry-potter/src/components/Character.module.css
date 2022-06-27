@@ -1,0 +1,19 @@
+.character {
+  text-align: center;
+  /* margin: 0 auto; */
+  margin-top: 2rem;
+}
+
+img {
+  width: 248px;
+  height: 331px;
+}
+
+.character_data {
+  display: inline-block;
+  vertical-align: top;
+  color: white;
+  margin-left: 1rem;
+  width: 22rem;
+  text-align: left;
+}
