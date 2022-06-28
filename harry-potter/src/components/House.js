@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
+import HouseCharacterModal from "./HouseCharacterModal";
 import { useParams } from "react-router-dom";
+
+import styles from "./StudentStaffHouses.module.css";
 
 const House = () => {
   const params = useParams();
@@ -8,6 +11,22 @@ const House = () => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  const [houseCharacterClicked, setHouseCharacterClicked] = useState(false);
+  const [houseCharacterData, setHouseCharacterData] = useState({});
+
+  const handleHouseCharacterClick = (event) => {
+    for (let i = 0; i < houseCharacters.length; i++) {
+      if (event.target.src === houseCharacters[i].image) {
+        setHouseCharacterData(houseCharacters[i]);
+      }
+    }
+    setHouseCharacterClicked(true);
+  };
+
+  const handleModalReturn = () => {
+    setHouseCharacterClicked(false);
+  };
 
   const fetchHouseCharacters = async (url, signal) => {
     setIsLoading(true);
@@ -40,19 +59,31 @@ const House = () => {
     return () => {
       controller.abort();
     };
-  }, []);
+  }, [params.house]);
 
   let hogwartsHouseCharacters = houseCharacters.map((houseCharacter, index) => {
     return (
-      <div key={index}>
-        <img src={houseCharacter.image} alt={houseCharacter.name} />
+      <div key={index} className={styles.student_staff_houses}>
+        <img
+          src={houseCharacter.image}
+          alt={houseCharacter.name}
+          onClick={handleHouseCharacterClick}
+        />
         <p>{houseCharacter.name}</p>
       </div>
     );
   });
   return (
     <>
-      <h1>{params.house}</h1>
+      {houseCharacterClicked && (
+        <HouseCharacterModal
+          houseCharacterData={houseCharacterData}
+          returnClicked={handleModalReturn}
+        ></HouseCharacterModal>
+      )}
+      <h1 className={styles.house_name}>
+        {params.house.charAt(0).toUpperCase() + params.house.slice(1)}
+      </h1>
       {!isLoading && <div>{hogwartsHouseCharacters}</div>}
       {isLoading && <p>Loading... please wait</p>}
       {!isLoading && error && <p>{error}</p>}

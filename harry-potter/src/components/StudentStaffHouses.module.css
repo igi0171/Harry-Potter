@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+
+.student_staff_houses {
+  margin-top: 1rem;
+  display: inline-block;
+  margin-left: 1rem;
+}
+
+.student_staff_houses img {
+  width: 248px;
+  height: 331px;
+}
+
+.student_staff_houses p {
+  color: white;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center;
+  font-family: "Dancing Script", cursive;
+}
+
+.house_name {
+  color: white;
+  font-family: "Dancing Script", cursive;
+  text-align: center;
+}

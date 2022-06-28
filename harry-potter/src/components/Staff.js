@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from "react";
+import StaffModal from "./StaffModal";
+
+import styles from "./StudentStaffHouses.module.css";
 
 const Staff = () => {
   const [staff, setStaff] = useState([]);
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  const [staffClicked, setStaffClicked] = useState(false);
+  const [staffData, setStaffData] = useState({});
 
   const fetchStaff = async (url, signal) => {
     setIsLoading(true);
@@ -38,10 +44,27 @@ const Staff = () => {
     };
   }, []);
 
+  const handleStaffClick = (event) => {
+    for (let i = 0; i < staff.length; i++) {
+      if (event.target.src === staff[i].image) {
+        setStaffData(staff[i]);
+      }
+    }
+    setStaffClicked(true);
+  };
+
+  const handleModalReturn = () => {
+    setStaffClicked(false);
+  };
+
   let staffCharacters = staff.map((character, index) => {
     return (
-      <div key={index}>
-        <img src={character.image} alt={character.name} />
+      <div key={index} className={styles.student_staff_houses}>
+        <img
+          src={character.image}
+          alt={character.name}
+          onClick={handleStaffClick}
+        />
         <p>{character.name}</p>
       </div>
     );
@@ -49,7 +72,12 @@ const Staff = () => {
 
   return (
     <>
-      <h1>Staff</h1>
+      {staffClicked && (
+        <StaffModal
+          staffData={staffData}
+          returnClicked={handleModalReturn}
+        ></StaffModal>
+      )}
       {!isLoading && <div>{staffCharacters}</div>}
       {isLoading && <p>Loading... please wait</p>}
       {!isLoading && error && <p>{error}</p>}

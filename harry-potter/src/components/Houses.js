@@ -6,7 +6,6 @@ import styles from "./Houses.module.css";
 const Houses = () => {
   return (
     <>
-      <h1>Hogwarts Houses</h1>
       <ul className={styles.houses}>
         <li>
           <Link to="/house/gryffindor">

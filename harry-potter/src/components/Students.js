@@ -41,7 +41,6 @@ const Students = () => {
 
   return (
     <>
-      <h1>Students</h1>
       {!isLoading && <Student students={students}></Student>}
       {isLoading && <p>Loading... please wait</p>}
       {!isLoading && error && <p>{error}</p>}

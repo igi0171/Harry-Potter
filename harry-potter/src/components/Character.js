@@ -10,14 +10,15 @@ const Character = (props) => {
         return (
           <div key={index} className={styles.character}>
             <img src={character.image} alt={character.name} />
-            <div className={styles.character_data}>
+            <div>
               <p>Name: {character.name}</p>
               <p>
-                {character.gender} {character.ancestry} {character.species}
+                {character.gender === "male" ? "♂" : "♀"} {character.ancestry}{" "}
+                {character.species}
                 {character.wizard ? " wizard" : ""}
               </p>
               <p>House: {character.house}</p>
-              <p>DOB: {character.dateOfBirth}</p>
+              <p>Date Of Birth: {character.dateOfBirth}</p>
               <p>Eye colour: {character.eyeColour}</p>
               <p>
                 Wand: {character.wand.wood} wood; {character.wand.core} core;{" "}
@@ -35,14 +36,15 @@ const Character = (props) => {
       return (
         <div key={index} className={styles.character}>
           <img src={character.image} alt={character.name} />
-          <div className={styles.character_data}>
+          <div>
             <p>Name: {character.name}</p>
             <p>
-              {character.gender} {character.ancestry} {character.species}
+              {character.gender === "male" ? "♂" : "♀"} {character.ancestry}{" "}
+              {character.species}
               {character.wizard ? " wizard" : ""}
             </p>
             <p>House: {character.house}</p>
-            <p>DOB: {character.dateOfBirth}</p>
+            <p>Date of Birth: {character.dateOfBirth}</p>
             <p>Eye colour: {character.eyeColour}</p>
             <p>
               Wand: {character.wand.wood} wood; {character.wand.core} core;{" "}

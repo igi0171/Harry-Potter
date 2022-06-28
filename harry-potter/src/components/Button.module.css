@@ -1,0 +1,19 @@
+.modal_button {
+  font: inherit;
+  border: 1px solid #514a92;
+  background: #514a92;
+  color: white;
+  padding: 0.25rem 1rem;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+
+.modal_button:hover,
+.modal_button:active {
+  background: #6b63b5;
+  border-color: #6b63b5;
+}
+
+.modal_button:focus {
+  outline: none;
+}

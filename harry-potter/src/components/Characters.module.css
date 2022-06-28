@@ -9,7 +9,7 @@
   text-align: center;
 }
 
-form {
+.top_bar form {
   display: inline-block;
   margin-top: 2rem;
 }
@@ -23,13 +23,13 @@ form {
   vertical-align: top;
 }
 
-label {
+.top_bar form div label {
   font-family: "Dancing Script", cursive;
   color: #fff;
   font-size: 1.5rem;
 }
 
-input {
+.top_bar form div input {
   margin-left: 1rem;
   width: 12rem;
   font-family: "Dancing Script", cursive;
@@ -38,7 +38,7 @@ input {
   font-size: 1rem;
 }
 
-button {
+.top_bar button {
   display: inline-block;
   margin-top: 2rem;
   vertical-align: top;
