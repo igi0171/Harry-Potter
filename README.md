@@ -21,7 +21,6 @@ User able to:
 - View characters
   ![This is an image](https://i.imgur.com/zgPJbgg.png)
 - Search for a character
-  ![This is an image](https://i.imgur.com/zgPJbgg.png)
 - Generate a random character
 - Be directed to Harry Potter Wiki Search Results page of character's name upon clicking on character's image (Characters page)
 - View character's modal upon clicking on character's image (Students, Staff, House page)
