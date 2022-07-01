@@ -39,7 +39,7 @@ const Staff = () => {
   };
 
   useEffect(() => {
-    const url = "http://hp-api.herokuapp.com/api/characters/staff";
+    const url = "https://hp-api.herokuapp.com/api/characters/staff";
 
     const controller = new AbortController();
     fetchStaff(url, controller.signal);

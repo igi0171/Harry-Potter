@@ -37,7 +37,7 @@ const Students = () => {
   };
 
   useEffect(() => {
-    const url = "http://hp-api.herokuapp.com/api/characters/students";
+    const url = "https://hp-api.herokuapp.com/api/characters/students";
 
     const controller = new AbortController();
     fetchStudents(url, controller.signal);

@@ -56,7 +56,7 @@ const House = () => {
 
   useEffect(() => {
     const url =
-      "http://hp-api.herokuapp.com/api/characters/house/" + params.house;
+      "https://hp-api.herokuapp.com/api/characters/house/" + params.house;
 
     const controller = new AbortController();
     fetchHouseCharacters(url, controller.signal);

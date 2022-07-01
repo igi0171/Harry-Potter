@@ -58,7 +58,7 @@ const Characters = (props) => {
   };
 
   useEffect(() => {
-    const url = "http://hp-api.herokuapp.com/api/characters";
+    const url = "https://hp-api.herokuapp.com/api/characters";
 
     const controller = new AbortController();
     fetchCharacters(url, controller.signal);
