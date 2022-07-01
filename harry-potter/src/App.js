@@ -1,12 +1,12 @@
 import React from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/navbar/NavBar";
 
-import Characters from "./components/Characters";
-import Students from "./components/Students";
-import Staff from "./components/Staff";
-import Houses from "./components/Houses";
-import House from "./components/House";
+import Characters from "./components/characters/Characters";
+import Students from "./components/students/Students";
+import Staff from "./components/staff/Staff";
+import Houses from "./components/houses/Houses";
+import House from "./components/houses/House";
 
 function App() {
   return (
