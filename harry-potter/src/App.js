@@ -15,11 +15,12 @@ function App() {
       <NavBar />
       <main>
         <Routes>
-          <Route path="/characters" element={<Characters />}></Route>
-          <Route
+          {/* <Route
             path="/"
             element={<Navigate replace to="/characters" />}
           ></Route>
+          <Route path="/characters" element={<Characters />}></Route> */}
+          <Route path="/" element={<Characters />}></Route>
           <Route path="/students" element={<Students />}></Route>
           <Route path="/staff" element={<Staff />}></Route>
           <Route path="/house" element={<Houses />}></Route>

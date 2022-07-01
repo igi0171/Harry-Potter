@@ -10,7 +10,7 @@ const NavBar = () => {
         <ul>
           <li>
             <NavLink
-              to="/characters"
+              to="/"
               className={(navData) => (navData.isActive ? styles.active : "")}
             >
               Characters
