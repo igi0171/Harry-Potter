@@ -45,8 +45,8 @@ User able to:
 - API data doesn't seem very comprehensive. May manually add character data after researching about the character in future iterations.
 - Individual house page do not link to the 3 other houses. May link them in future iterations.
 - May add a 'Favorites' page where user's favorite characters can be stored using local storage after all characters have their images.
-- Can add a 'World Cup' feature ['World Cup'](https://www.piku.co.kr/w/8Km1Q0). (Think this will require intensive algorithm.)
-- Can fetch spells data from another [API](https://fedeperin-harry-potter-api-en.herokuapp.com/spells)
+- Can add a ['World Cup'](https://www.piku.co.kr/w/8Km1Q0) feature. (Think this will require intensive algorithm.)
+- Can fetch spells data from another [API](https://fedeperin-harry-potter-api-en.herokuapp.com/spells).
 
 ## APIs Used
 
